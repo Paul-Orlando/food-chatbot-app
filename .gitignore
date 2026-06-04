@@ -12,7 +12,7 @@ frontend/.next/
 frontend/.env.local
 
 # Root
-.env.example
+/.env.example
 *.log
 .DS_Store
 Thumbs.db

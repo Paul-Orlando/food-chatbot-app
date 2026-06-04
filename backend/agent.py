@@ -1,4 +1,5 @@
 import json
+import os
 from typing import AsyncGenerator
 
 from openai import AsyncOpenAI
@@ -59,7 +60,7 @@ async def run_agent(session_id: str, user_message: str) -> AsyncGenerator[str, N
         finish_reason: str | None = None
 
         stream = await _get_client().chat.completions.create(
-            model="gpt-4o",
+            model=os.getenv("MODEL_NAME", "gpt-4o-mini"),
             messages=messages,
             tools=TOOLS,
             tool_choice="auto",
